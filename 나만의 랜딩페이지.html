@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISFP 대학생의 Cozy Space</title>
+    <style>
+        :root {
+            --bg-color: #F7F4EF;
+            --card-bg: #FFFFFF;
+            --text-main: #4A453F;
+            --text-sub: #8C8275;
+            --accent: #D4C5B9;
+            --accent-hover: #C5B5A7;
+            --border-color: #E8E2D5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* 공통 카드 스타일 */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(74, 69, 63, 0.03);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        /* 프로필 섹션 */
+        .profile-header {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .profile-header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--bg-color);
+            color: var(--text-sub);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .bio {
+            font-size: 15px;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-top: 5px;
+        }
+
+        /* 섹션 타이틀 */
+        .section-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        /* 요즘의 취향 (음악 & 책) */
+        .taste-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .taste-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .taste-item {
+            background-color: var(--bg-color);
+            padding: 20px;
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .taste-item .icon {
+            font-size: 24px;
+        }
+
+        .taste-item .title {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .taste-item .desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            line-height: 1.4;
+        }
+
+        /* 버킷리스트 (스위스) */
+        .bucket-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: linear-gradient(135deg, #F4EFEA 0%, #EFE8E1 100%);
+            padding: 20px;
+            border-radius: 14px;
+        }
+
+        .bucket-icon {
+            font-size: 40px;
+        }
+
+        .bucket-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .bucket-info p {
+            font-size: 13px;
+            color: var(--text-sub);
+            line-height: 1.4;
+        }
+
+        /* 좋아하는 것들 모음 칩 */
+        .favorites-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 푸터 */
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 프로필 섹션 -->
+        <div class="card profile-header">
+            <div class="avatar">🌿</div>
+            <h1>안녕하세요, 여유를 사랑하는 대학생입니다</h1>
+            <div class="tag">ISFP · 감성 탐험가</div>
+            <p class="bio">조용히 사색을 즐기고, 음악과 일상의 소소한 순간에서 영감을 받습니다.</p>
+        </div>
+
+        <!-- 요즘의 취향 -->
+        <div class="card">
+            <div class="section-title">Now Playing & Reading</div>
+            <div class="taste-grid">
+                <div class="taste-item">
+                    <span class="icon">🎧</span>
+                    <div class="title">Crush (크러쉬)</div>
+                    <div class="desc">요즘 귀를 녹이는 크러쉬의 감성적인 노래 반복 재생 중</div>
+                </div>
+                <div class="taste-item">
+                    <span class="icon">📖</span>
+                    <div class="title">사랑의 증명</div>
+                    <div class="desc">마음을 차분하게 채워주는 요즘 읽고 있는 에세이</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 버킷 리스트 -->
+        <div class="card">
+            <div class="section-title">Bucket List</div>
+            <div class="bucket-content">
+                <div class="bucket-icon">🏔️</div>
+                <div class="bucket-info">
+                    <h3>스위스 자연 속으로 떠나기</h3>
+                    <p>눈 덮인 알프스와 여유로운 초원을 직접 눈에 담고, 대자연 속에서 온전한 힐링을 누려보고 싶어요.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 좋아하는 것들 모음 -->
+        <div class="card">
+            <div class="section-title">My Favorite Things</div>
+            <div class="favorites-chips">
+                <div class="chip">☕ 따뜻한 라떼</div>
+                <div class="chip">🎧 플레이리스트 수집</div>
+                <div class="chip">🌙 조용한 새벽 감성</div>
+                <div class="chip">✈️ 여행 에세이</div>
+                <div class="chip">🎨 시각적 영감</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2026. Designed with cozy beige mood.
+        </div>
+    </div>
+
+</body>
+</html>
